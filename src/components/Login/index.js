@@ -3,9 +3,24 @@ import { connect } from 'react-redux';
 import { StyledInput, PasswordInput } from '../Input';
 import Button from '../Button'
 import { setUserToken } from '../../actions/users';
+import styled from 'styled-components';
+import Container from '../Container'
 
 
-
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+`
+const StyledContainer = styled(Container)`
+    flex-direction: column;
+    align-items: center;
+`
+const StyledButton = styled(Button)`
+    margin: 0 auto;
+`
 
 const Login = (props) => {
     const [email, setEmail] = useState('')
@@ -37,12 +52,15 @@ const Login = (props) => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <StyledInput value={email} onChange={e => setEmail(e.target.value)} />
-                <PasswordInput value={password} onChange={e => setPassword(e.target.value)} />
-                {err && <div>Wrong email password combination, try again.</div>}
-                <Button>Go</Button>
-            </form>
+            <StyledForm onSubmit={handleSubmit}>
+                <StyledContainer>
+                    <StyledInput value={email} onChange={e => setEmail(e.target.value)} />
+                    <PasswordInput value={password} onChange={e => setPassword(e.target.value)} />
+                    {err && <div>Wrong email password combination, try again.</div>}
+                    <StyledButton>Go</StyledButton>
+                </StyledContainer>
+
+            </StyledForm>
         </div>
     );
 
