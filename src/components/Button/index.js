@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+const Button = styled.button`
     height: 30px;
     width: 55px;
     background-color: black;
@@ -10,13 +10,5 @@ const StyledButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
 `
-
-const Button = () => {
-    return (
-        <StyledButton>
-            Go
-        </StyledButton>
-    )
-}
 
 export default Button;

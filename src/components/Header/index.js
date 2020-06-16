@@ -20,7 +20,7 @@ const Header = () => {
             <StyledLink to="/">music notes</StyledLink>
             <div>
                 <StyledLink to="/login">login</StyledLink>
-                <StyledLink to="/new-account">create an account</StyledLink>
+                <StyledLink to="/create">create an account</StyledLink>
             </div>
         </Container>
     )
