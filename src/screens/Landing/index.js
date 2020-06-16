@@ -7,6 +7,7 @@ const StyledContainer = styled(Container)`
     justify-content: center;
     width: 100%;
     height: 500px;
+    align-items: center;
 `
 
 const Landing = () => {
