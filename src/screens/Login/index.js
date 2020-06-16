@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { StyledInput, PasswordInput } from '../../components/Input';
-import Button from '../../components/Button'
-import { setUserToken } from '../../actions/users';
 import styled from 'styled-components';
+import { StyledInput, PasswordInput } from '../../components/Input';
+import Button from '../../components/Button';
 import Container from '../../components/Container';
+import StyledForm from '../../components/Form';
+import { setUserToken } from '../../actions/users';
 
 
-const StyledForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    justify-content: center;
-    align-items: center;
-`
 const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: center;
