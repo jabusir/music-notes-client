@@ -1,5 +1,7 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import userReducer from '../reducers/userReducer';
+
+const compEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) || compose;
 
 
 export default () => {
@@ -7,7 +9,7 @@ export default () => {
         combineReducers({
             user: userReducer,
         }),
-        applyMiddleware()
+        compEnhancers(applyMiddleware())
     );
     return store;
 };

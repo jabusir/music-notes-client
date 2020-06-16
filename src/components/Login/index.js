@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { connect } from 'react-redux';
 import { StyledInput, PasswordInput } from '../Input';
 import Button from '../Button'
+import { setUserToken } from '../../actions/users';
 
 
 
 
-const Login = () => {
+const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [token, setToken] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -24,7 +24,7 @@ const Login = () => {
             })
         })
             .then((res) => res.json())
-            .then((res) => console.log(res))
+            .then((res) => props.dispatch(setUserToken(res.token)))
 
     }
     return (
@@ -39,4 +39,4 @@ const Login = () => {
 
 }
 
-export default Login;
+export default connect()(Login);
