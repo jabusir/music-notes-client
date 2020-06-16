@@ -10,6 +10,7 @@ import { setUserToken } from '../../actions/users';
 const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [err, setErr] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,9 +23,16 @@ const Login = (props) => {
                 email: email,
                 password: password
             })
+        }).then((res) => {
+            if (res.status === 200) {
+                return res.json()
+            }
+        }).then((res) => {
+            props.dispatch(setUserToken(res.token))
+            props.history.push('/home')
+        }).catch((e) => {
+            setErr(true)
         })
-            .then((res) => res.json())
-            .then((res) => props.dispatch(setUserToken(res.token)))
 
     }
     return (
@@ -32,6 +40,7 @@ const Login = (props) => {
             <form onSubmit={handleSubmit}>
                 <StyledInput value={email} onChange={e => setEmail(e.target.value)} />
                 <PasswordInput value={password} onChange={e => setPassword(e.target.value)} />
+                {err && <div>Wrong email password combination, try again.</div>}
                 <Button>Go</Button>
             </form>
         </div>
