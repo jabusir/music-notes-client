@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyledInput = styled.input`
     height: 50px;
-    widht: 50px;
+    width: 300px;
     margin: 10px 15px;
 `
 export const PasswordInput = styled.input.attrs(props => ({
@@ -11,6 +11,6 @@ export const PasswordInput = styled.input.attrs(props => ({
     type: "password"
 }))`
         height: 50px;
-        widht: 50px;
+        width: 300px;
         margin: 10px 15px;
 `
