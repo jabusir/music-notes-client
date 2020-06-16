@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { StyledInput, PasswordInput } from '../Input';
-import Button from '../Button'
+import { StyledInput, PasswordInput } from '../../components/Input';
+import Button from '../../components/Button'
 import { setUserToken } from '../../actions/users';
 import styled from 'styled-components';
-import Container from '../Container'
+import Container from '../../components/Container';
 
 
 const StyledForm = styled.form`
