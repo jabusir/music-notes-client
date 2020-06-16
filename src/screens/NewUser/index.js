@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { StyledInput, PasswordInput } from '../../components/Input'
 import StyledForm from '../../components/Form';
 import Button from '../../components/Button';
-import { setUserToken } from '../../actions/users';
+import { setUser } from '../../actions/users';
 
 const NewUserForm = (props) => {
     const [username, setUsername] = useState('')
@@ -25,7 +25,7 @@ const NewUserForm = (props) => {
             },
         })
             .then((res) => res.json())
-            .then((res) => props.dispatch(setUserToken(res.token)))
+            .then((res) => props.dispatch(setUser(res)))
     }
 
     return (

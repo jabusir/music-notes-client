@@ -1,4 +1,4 @@
-export const setUserToken = (token) => ({
-    type: 'SET_USER_TOKEN',
-    token,
+export const setUser = (user) => ({
+    type: 'SET_USER',
+    user
 })

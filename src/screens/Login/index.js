@@ -5,7 +5,7 @@ import { StyledInput, PasswordInput } from '../../components/Input';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import StyledForm from '../../components/Form';
-import { setUserToken } from '../../actions/users';
+import { setUser } from '../../actions/users';
 
 
 const StyledContainer = styled(Container)`
@@ -37,7 +37,7 @@ const Login = (props) => {
                 return res.json()
             }
         }).then((res) => {
-            props.dispatch(setUserToken(res.token))
+            props.dispatch(setUser(res))
             props.history.push('/home')
         }).catch((e) => {
             setErr(true)

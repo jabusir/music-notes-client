@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 
 const defaultState = {
 
@@ -5,10 +6,9 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case 'SET_USER_TOKEN':
+        case 'SET_USER':
             return {
-                ...state,
-                token: action.token
+                ...action.user,
             }
         default:
             return state;
