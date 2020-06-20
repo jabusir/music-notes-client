@@ -13,7 +13,7 @@ class Dropdown extends React.Component {
 
     render() {
         return (
-            <div className="dropdown-container">
+            <div>
             {
                 this.props.tracks.length > 0 && this.props.tracks.map((track) => (
                         <DropdownCard track={track} key={track.id}/>

@@ -1,7 +1,21 @@
 
 import React from 'react';
+import styled from 'styled-components'
 import { connect } from 'react-redux';
 
+
+const DropDownItem = styled.div`
+    height: 100px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    border: black solid 1px;
+    width: 100%;
+`
+
+const TrackName = styled.div`
+    margin-left: 5px;
+`
 
 class DropdownCard extends React.Component {
     state = {
@@ -23,12 +37,12 @@ class DropdownCard extends React.Component {
 
     render() {
         return(
-        <div className="dropdown-item" onClick={this.handleClick}>
+        <DropDownItem className="dropdown-item" onClick={this.handleClick}>
             <img className="track-image" src={this.state.image} height="100px" width="100px" alt="album"/>   
             <div className="track-name">
                 {this.state.name}
             </div>
-        </div>
+        </DropDownItem>
         )
     }
 }

@@ -1,7 +1,17 @@
 import React from 'react';
 import Dropdown from '../Dropdown';
+import styled from 'styled-components';
+import StyledForm from '../StyledForm'
 import _ from 'lodash';
 
+const Searchbar = styled.input`
+    width: 80%;
+    height: 100px;
+    font-size: 75px;
+`
+const CustomForm = styled(StyledForm)`
+    height: 100%;
+`
 
 const createDebouncedFn = (fn) => {
     const debouncedFn = _.debounce(fn, 1000);
@@ -43,17 +53,17 @@ export default class SongSearchbar extends React.Component {
                 .then((res) => res.json())
                 .then((res) => this.setState(() => ({ tracks: res.tracks.items })))
         } else {
-            this.setState(() => ({ result: [] }))
+            this.setState(() => ({ tracks: [] }))
         }
     }
 
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input className="searchbar" id="query" type="text" value={this.state.query} onChange={this.handleChange} />
+            <CustomForm onSubmit={this.handleSubmit}>
+                <Searchbar className="searchbar" id="query" type="text" value={this.state.query} onChange={this.handleChange} />
                 <Dropdown tracks={this.state.tracks} />
-            </form>
+            </CustomForm>
         );
     }
 }

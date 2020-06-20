@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import { StyledInput, PasswordInput } from '../../components/Input'
-import StyledForm from '../../components/Form';
+import StyledForm from '../../components/StyledForm';
 import Button from '../../components/Button';
 import { setUser } from '../../actions/users';
 
