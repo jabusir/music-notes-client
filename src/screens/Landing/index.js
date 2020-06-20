@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 import Container from '../../components/Container';
 
 const StyledContainer = styled(Container)`
@@ -10,7 +11,13 @@ const StyledContainer = styled(Container)`
     align-items: center;
 `
 
-const Landing = () => {
+const Landing = (props) => {
+    useEffect(() => {
+        if (props.user.token) {
+            props.history.push('/home')
+        }
+    })
+
     return (
         <StyledContainer>
             <h1>Welcome to music notes</h1>
@@ -20,4 +27,8 @@ const Landing = () => {
     );
 }
 
-export default Landing
+const mapStateToProps = (state) => {
+    return {...state}
+}
+
+export default connect(mapStateToProps)(Landing);
