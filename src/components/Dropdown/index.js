@@ -1,7 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux'
 import DropdownCard from '../DropdownCard';
 
+const Container = styled.div`
+    width: 80%
+`
 
 class Dropdown extends React.Component {
     state = {
@@ -13,13 +17,13 @@ class Dropdown extends React.Component {
 
     render() {
         return (
-            <div>
+            <Container>
             {
                 this.props.tracks.length > 0 && this.props.tracks.map((track) => (
                         <DropdownCard track={track} key={track.id}/>
                 ))
             }
-            </div>
+            </Container>
         );
     }
 }

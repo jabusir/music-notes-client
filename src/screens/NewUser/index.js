@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import { StyledInput, PasswordInput } from '../../components/Input'
@@ -10,6 +10,12 @@ const NewUserForm = (props) => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        if (props.user.token) {
+            props.history.push('/home')
+        }
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault()

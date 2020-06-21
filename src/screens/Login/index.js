@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { StyledInput, PasswordInput } from '../../components/Input';
@@ -21,6 +21,12 @@ const Login = (props) => {
     const [password, setPassword] = useState('')
     const [err, setErr] = useState(false)
 
+    useEffect(() => {
+        if (props.token) {
+            props.history.push('/home')
+        }
+    })
+
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch(`http://localhost:3001/users/login`, {
@@ -37,6 +43,7 @@ const Login = (props) => {
                 return res.json()
             }
         }).then((res) => {
+            localStorage.setItem("tokens", JSON.stringify(res.token));
             props.dispatch(setUser(res))
             props.history.push('/home')
         }).catch((e) => {
@@ -60,4 +67,8 @@ const Login = (props) => {
 
 }
 
-export default connect()(Login);
+const mapStateToProps = state => {
+    return ({token: state.user.token})
+}
+
+export default connect(mapStateToProps)(Login);

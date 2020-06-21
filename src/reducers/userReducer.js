@@ -10,6 +10,11 @@ export default (state = defaultState, action) => {
             return {
                 ...action.user,
             }
+        case 'SET_TOKEN': 
+            return {
+                ...state,
+                token: action.token
+            }
         default:
             return state;
     }
