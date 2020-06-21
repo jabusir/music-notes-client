@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 
-const Profile = () => {
+const Profile = ({user}) => {
+    const userPayload = user.user
     return (
         <div>
-            Profile
+            {userPayload.username}
         </div>
     );
 }
 
-export default Profile;
+const mapStateToProps = state => {
+    return {...state}
+}
+
+export default connect(mapStateToProps)(Profile);

@@ -8,7 +8,8 @@ export default (state = defaultState, action) => {
     switch (action.type) {
         case 'SET_USER':
             return {
-                ...action.user,
+                ...state,
+                user: action.user,
             }
         case 'SET_TOKEN': 
             return {

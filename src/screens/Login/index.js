@@ -25,7 +25,7 @@ const Login = (props) => {
         if (props.token) {
             props.history.push('/home')
         }
-    })
+    }, [props.token])
 
     const handleSubmit = (e) => {
         e.preventDefault()
