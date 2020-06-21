@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { StyledInput, PasswordInput } from '../../components/Input';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
-import StyledForm from '../../components/Form';
+import StyledForm from '../../components/StyledForm';
 import { setUser } from '../../actions/users';
 
 

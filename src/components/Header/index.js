@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
@@ -14,16 +15,21 @@ const StyledLink = styled(Link)`
 `
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <Container>
             <StyledLink to="/">music notes</StyledLink>
-            <div>
+            {!props.user.token && 
+            < div>
                 <StyledLink to="/login">login</StyledLink>
                 <StyledLink to="/create">create an account</StyledLink>
-            </div>
+            </div>}
         </Container>
     )
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {...state}
+}
+
+export default connect(mapStateToProps)(Header);
