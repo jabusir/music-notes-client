@@ -37,7 +37,6 @@ const Login = (props) => {
                 return res.json()
             }
         }).then((res) => {
-            console.log(res)
             props.dispatch(setUser(res))
             props.history.push('/home')
         }).catch((e) => {

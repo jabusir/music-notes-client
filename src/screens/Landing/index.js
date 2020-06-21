@@ -12,11 +12,11 @@ const StyledContainer = styled(Container)`
 `
 
 const Landing = (props) => {
-    useEffect(() => {
-        if (props.user.token) {
-            props.history.push('/home')
-        }
-    })
+    // useEffect(() => {
+    //     if (props.user.token) {
+    //         props.history.push('/home')
+    //     }
+    // }, [props.user])
 
     return (
         <StyledContainer>
