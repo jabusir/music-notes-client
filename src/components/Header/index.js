@@ -19,11 +19,16 @@ const Header = (props) => {
     return (
         <Container>
             <StyledLink to="/">music notes</StyledLink>
-            {!props.user.token && 
-            < div>
+            {!props.user.token ? (
+            <div>
                 <StyledLink to="/login">login</StyledLink>
                 <StyledLink to="/create">create an account</StyledLink>
-            </div>}
+            </div>)
+            :
+            (
+                <StyledLink to="/me">profile</StyledLink>
+            )
+            }
         </Container>
     )
 }

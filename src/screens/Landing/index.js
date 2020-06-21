@@ -16,7 +16,7 @@ const Landing = (props) => {
         if (props.user.token) {
             props.history.push('/home')
         }
-    }, [props.user])
+    })
 
     return (
         <StyledContainer>

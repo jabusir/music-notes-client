@@ -11,7 +11,12 @@ const DropDownItem = styled.div`
     align-items: center;
     border: black solid 1px;
     width: 100%;
+    &hover: {
+        cursor: pointer;
+    }
 `
+
+
 
 const TrackName = styled.div`
     margin-left: 5px;
@@ -39,9 +44,9 @@ class DropdownCard extends React.Component {
         return(
         <DropDownItem className="dropdown-item" onClick={this.handleClick}>
             <img className="track-image" src={this.state.image} height="100px" width="100px" alt="album"/>   
-            <div className="track-name">
+            <TrackName className="track-name">
                 {this.state.name}
-            </div>
+            </TrackName>
         </DropDownItem>
         )
     }
