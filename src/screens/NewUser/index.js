@@ -12,7 +12,7 @@ const NewUserForm = (props) => {
     const [password, setPassword] = useState('')
 
     useEffect(() => {
-        if (props.user.token) {
+        if (props.user && props.user.token) {
             props.history.push('/home')
         }
     })

@@ -60,7 +60,6 @@ const Login = (props) => {
                     {err && <div>Wrong email password combination, try again.</div>}
                     <StyledButton>Go</StyledButton>
                 </StyledContainer>
-
             </StyledForm>
         </div>
     );
@@ -68,7 +67,7 @@ const Login = (props) => {
 }
 
 const mapStateToProps = state => {
-    return ({token: state.user.token})
+    return ({ token: state.user.token })
 }
 
 export default connect(mapStateToProps)(Login);
